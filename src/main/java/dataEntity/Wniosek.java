@@ -1,4 +1,4 @@
-package pl.workjava.firma;
+package dataEntity;
 
 public class Wniosek {
 

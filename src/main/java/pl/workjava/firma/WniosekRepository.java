@@ -1,5 +1,6 @@
 package pl.workjava.firma;
 
+import dataEntity.Wniosek;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -45,11 +46,12 @@ public class WniosekRepository {
             System.out.println("cena zwrotu za przejechany km " + wniosek.getAutoC());
             System.out.println("suma cen paragonów " + wniosek.getSumaCenParagonow());
 
-            System.out.println("*********************************");
+            System.out.println("*___*");
             System.out.println("Zwrot kosztów z paragonu " + wniosek.getCenaAll());
             System.out.println("Zwrot diety za wszystkie dni delegacji " + wniosek.getCenaDayAll());
             System.out.println("Zwrot kosztów zw z podróżowaniem samochodem pracownika " + wniosek.getAutoAll());
             System.out.println("cena Delegacji " + wniosek.getCenaDelegacji());
+            System.out.println("*********************************");
         });
     }
 
