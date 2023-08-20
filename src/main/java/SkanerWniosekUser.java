@@ -6,23 +6,19 @@ public class SkanerWniosekUser {
     private WniesekService wniosekService;
 
     public static void handleCreateNewWniosek(Scanner scanner, WniesekService wniosekService) {//met. tworzy wniosek przy pomocy skanera
-        System.out.println("Podaj nazwę wniosku:");
+        System.out.println("Podaj nazwe wniosku:");
         String name = scanner.nextLine();
 
-        System.out.println("Podaj cenę z paragonu:");
-        int cena = scanner.nextInt();
-        System.out.println("Podaj limit ceny z paragonu:");
-        int cenaL = scanner.nextInt();
-        System.out.println("Podaj liczbę dni w delegacji:");
+        System.out.println("Podaj liczbe dni w delegacji:");
         int dni = scanner.nextInt();
-        System.out.println("Podaj dietę za dzień:");
+        System.out.println("Podaj diete za dzien:");
         int cenaDay = scanner.nextInt();
-        System.out.println("Podaj liczbę przejechanych kilometrów samochodem pracownika:");
+        System.out.println("Podaj liczbe przejechanych kilometrow samochodem pracownika:");
         int autoKM = scanner.nextInt();
-        System.out.println("Podaj stawkę za każdy przejechany km:");
+        System.out.println("Podaj stawke za przejechany km:");
         int autoC = scanner.nextInt();
 
-        System.out.println("Utworzyłeś nowy wniosek.");
+        System.out.println("Utworzyles nowy wniosek.");
 
 
 //PARAGONY!!!!!!!!!!!
@@ -33,12 +29,12 @@ public class SkanerWniosekUser {
         Set<Integer> addedParagonTypes = new HashSet<>(); // Zbiór przechowujący typy paragonów, które zostały już dodane
 
         while (true) {
-            System.out.println("Czy chcesz dodać paragon? Wybierz numer paragonu lub 0 aby zakończyć:");
+            System.out.println("Czy chcesz dodac paragon? Wybierz numer paragonu lub 0 aby zakonczyc:");
             System.out.println("1. Cena paragonu za hotel");
-            System.out.println("2. Cena paragonu za pociąg");
-            System.out.println("3. Cena paragonu za aaa");
-            System.out.println("4. Cena paragonu za bbb");
-            System.out.println("5. Cena paragonu za ccc");
+            System.out.println("2. Cena paragonu za pociag");
+            System.out.println("3. Cena paragonu za samolot");
+            System.out.println("4. Cena paragonu za kolacje");
+            System.out.println("5. Cena paragonu za sniadania");
             int choice = scanner.nextInt();
 
             if (choice == 0) {
@@ -46,7 +42,7 @@ public class SkanerWniosekUser {
             }
 
             if (addedParagonTypes.contains(choice)) {
-                System.out.println("Paragon tego typu został już dodany. Wybierz inny typ lub 0 aby zakończyć.");
+                System.out.println("Paragon tego typu zostal juz dodany. Wybierz inny typ lub 0 aby zakonczyc.");
                 continue;
             }
 
@@ -55,46 +51,46 @@ public class SkanerWniosekUser {
             switch (choice) {
                 case 1:
                     paragony.add("paragon za hotel");
-                    System.out.println("Podaj cenę paragonu za hotel:");
+                    System.out.println("Podaj cene paragonu za hotel:");
                     cenaParagonu = scanner.nextInt();
                     sumaCenParagonow += cenaParagonu;
                     break;
                 case 2:
-                    paragony.add("paragon za pociąg");
-                    System.out.println("Podaj cenę paragonu za pociąg:");
+                    paragony.add("paragon za pociag");
+                    System.out.println("Podaj cene paragonu za pociag:");
                     cenaParagonu = scanner.nextInt();
                     sumaCenParagonow += cenaParagonu;
                     break;
                 case 3:
-                    paragony.add("paragon za aaa");
-                    System.out.println("Podaj cenę paragonu za aaa:");
+                    paragony.add("paragon za samolot");
+                    System.out.println("Podaj cene paragonu za samolot:");
                     cenaParagonu = scanner.nextInt();
                     sumaCenParagonow += cenaParagonu;
                     break;
                 case 4:
-                    paragony.add("paragon za bbb");
-                    System.out.println("Podaj cenę paragonu za bbb:");
+                    paragony.add("paragon za kolacje");
+                    System.out.println("Podaj cene paragonu za kolacje:");
                     cenaParagonu = scanner.nextInt();
                     sumaCenParagonow += cenaParagonu;
                     break;
                 case 5:
-                    paragony.add("paragon za ccc");
-                    System.out.println("Podaj cenę paragonu za ccc:");
+                    paragony.add("paragon za sniadania");
+                    System.out.println("Podaj cene paragonu za sniadania:");
                     cenaParagonu = scanner.nextInt();
                     sumaCenParagonow += cenaParagonu;
                     break;
                 default:
-                    System.out.println("Nieprawidłowy wybór.");
+                    System.out.println("Nieprawidlowy wybor.");
                     break;
             }
 
             addedParagonTypes.add(choice);
 
-            System.out.println("Czy chcesz dodać kolejny paragon? Wybierz numer paragonu lub 0 aby zakończyć:");
+            System.out.println("Czy chcesz dodac kolejny paragon? Wybierz numer paragonu lub 0 aby zakonczyc:");
         }
 
-        System.out.println("Dodałeś paragony: " + paragony);
+        System.out.println("Dodales paragony: " + paragony);
 
-        wniosekService.createNewWniosek(name, cena, cenaL, dni, cenaDay, autoKM, autoC, sumaCenParagonow);
+        wniosekService.createNewWniosek(name, dni, cenaDay, autoKM, autoC, sumaCenParagonow);
     }
 }

@@ -4,20 +4,16 @@ public class Wniosek {
 
     private long id;
     private String name;
-    private int cena;
-    private int cenaL;
     private int dni;
     private int cenaDay;
     private int autoKM;
     private int autoC;
     private int sumaCenParagonow;
 
-    public Wniosek(long id, String name, int cena, int cenaL, int dni, int cenaDay,
+    public Wniosek(long id, String name, int dni, int cenaDay,
                    int autoKM, int autoC, int sumaCenParagonow) {
         this.id = id;
         this.name = name;
-        this.cena = cena;
-        this.cenaL = cenaL;
         this.dni = dni;
         this.cenaDay = cenaDay;
         this.autoKM = autoKM;
@@ -39,22 +35,6 @@ public class Wniosek {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getCena() {
-        return cena;
-    }
-
-    public void setCena(int cena) {
-        this.cena = cena;
-    }
-
-    public int getCenaL() {
-        return cenaL;
-    }
-
-    public void setCenaL(int cenaL) {
-        this.cenaL = cenaL;
     }
 
     public int getDni() {
@@ -102,10 +82,6 @@ public class Wniosek {
     //______________________________
     // ... pozostałe gettery i settery ...
 
-    public int getCenaAll() {
-        return cena > cenaL ? cenaL : cena;
-    }
-
     public int getCenaDayAll() {
         return dni * cenaDay;
     }
@@ -115,7 +91,7 @@ public class Wniosek {
     }
 
     public int getCenaDelegacji() {
-        return getCenaAll() + getCenaDayAll() + getAutoAll()+getSumaCenParagonow();
+        return getCenaDayAll() + getAutoAll()+getSumaCenParagonow();
     }
     //_________________________________
 
@@ -125,8 +101,6 @@ public class Wniosek {
         return "Wniosek{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", cena=" + cena +
-                ", cenaL=" + cenaL +
                 ", dni=" + dni +
                 ", cenaDay=" + cenaDay +
                 ", autoKM=" + autoKM +

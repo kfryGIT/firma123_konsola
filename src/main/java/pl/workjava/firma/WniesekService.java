@@ -17,8 +17,8 @@ public class WniesekService {
     //magazynier tworzy nowy wniosek wywołując met.createNew z klasy service
     // ->potem serwis komunikuje się z repo gdzie jest lista wnioskow
 
-    public Wniosek createNewWniosek(String name, int cena, int cenaL, int dni, int cenaDay, int autoKM, int autoC, int sumaCenParagonow){
-        return this.repository.createNew(name, cena, cenaL, dni, cenaDay, autoKM, autoC, sumaCenParagonow);
+    public Wniosek createNewWniosek(String name, int dni, int cenaDay, int autoKM, int autoC, int sumaCenParagonow){
+        return this.repository.createNew(name, dni, cenaDay, autoKM, autoC, sumaCenParagonow);
     }
 
     public void readAll() {

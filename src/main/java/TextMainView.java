@@ -14,20 +14,23 @@ public class TextMainView {
     }
 
     public void init() throws IOException {
-        System.out.println("System do tworzenia wniosków po podrurzy służbowej");
-        System.out.println("Na dzień dzisiejszy w systemi utworzono następujące wnioski");
+        System.out.println("System do tworzenia wnioskow po podrozy sluzbowej");
+        System.out.println("Na dzien dzisiejszy w systemie utworzono nastepujace wnioski");
         System.out.println("-----------------------------");
         this.wniosekService.readAll();//czyta i wypisuje wszytkie wnioski z pliku
         System.out.println("-----------------------------");
-        System.out.println("Utwórz nowy wniosek");
+        System.out.println("Utworz nowy wniosek");
         Scanner scanner=new Scanner(System.in);
 
 
         //this.
         SkanerWniosekUser.handleCreateNewWniosek(scanner, wniosekService);//met. tworzy wniosek poniżej linia 38
 
-        System.out.println("zapisuje dane");//zapisuje dane
+        System.out.println("Zapisuje dane");//zapisuje dane
         this.wniosekService.saveAll();
+        System.out.println("-----------------------------");
+        System.out.println("Aby zobaczyc liste zapisanych wnioskow uruchom ponownie program");
+        System.out.println("-----------------------------");
         System.out.println("Koniec dzialania programu");
     }
 
